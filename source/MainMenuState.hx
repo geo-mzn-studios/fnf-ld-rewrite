@@ -71,7 +71,7 @@ class MainMenuState extends MusicBeatState
 		}
 
 		FlxG.camera.follow(camFollow, null, 0.06);
-		var fnfVer:FlxText = new FlxText(12, FlxG.height - 24, 0, "Ludum Friday Night Funkin' v" + Main.ludumfnfVersion, 12);
+		var fnfVer:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' Ludum Rewrite v" + Main.ludumfnfVersion, 12);
 		fnfVer.scrollFactor.set();
 		fnfVer.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(fnfVer);
@@ -98,6 +98,10 @@ class MainMenuState extends MusicBeatState
 		if (controls.BACK)
 		{
 			FlxG.switchState(new TitleState());
+		}
+		if (FlxG.keys.justPressed.SEVEN)
+		{
+			FlxG.switchState(new ChartingState());
 		}
 
 		super.update(elapsed);
@@ -138,6 +142,8 @@ class MainMenuState extends MusicBeatState
 									FlxG.switchState(new StoryMenuState());
 								case 'freeplay':
 									FlxG.switchState(new FreeplayState());
+								case 'options':
+									FlxG.switchState(new OptionsState())
 							}
 						});
 					}
